@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    {% extends 'apptalentos/inicio.html' %}
+
+    {% load static %}
+
+    {% block contenidoQueCambia %}
+
+    <section class="page-section bg-primary text-white mb-0" id="about">
+        <h2 class="page-section-heading text-center text-uppercase text-white">Talentos de las Redes</h2>
+        <h3 style="text-align: center;">Variedad y Talento tope de gama</h3>
+    <div class="row">
+        {% for influencer in object_list %}
+            <div class="card" style="width: 18rem;" >
+                <img src="{{ influencer.foto.url }}" class="card-img-top" alt="{{ influencer.nombre }}">
+                <div class="card-body">
+                    <h5 class="card-title" style="color: #2a2e31;">{{ influencer.tag }}</h5>
+                    <img src="{{ influencer.photo.url }}" alt="Imagen del Influencer" style="width: 100%; height: auto;"/>
+                    <a href="{% url 'InfluencerDetail' influencer.id %}" class="btn btn-primary">Ver</a>
+                                        
+                    {% if perms.apptalentos.change_influencer %}
+                        <a href="{% url 'InfluencerUpdate' influencer.id %}" class="btn btn-primary">Editar</a>
+                    {% endif %}
+                    
+                    {% if perms.apptalentos.delete_influencer %}
+                        <a href="{% url 'InfluencerDelete' influencer.id %}" class="btn btn-primary">Borrar</a>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    {% endblock %}
+
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    {% extends 'apptalentos/inicio.html' %}
+
+    {% load static %}
+
+    {% block contenidoQueCambia %}
+
+    <section class="page-section bg-primary text-white mb-0" id="about">
+        <h2 class="page-section-heading text-center text-uppercase text-white">Talentos de la Competencia</h2>
+        <h3 style="text-align: center;">Guerreros del Server</h3>
+    <div class="row">
+        {% for player in object_list %}
+            <div class="card" style="width: 18rem;" >
+                <img src="{{ player.foto.url }}" class="card-img-top" alt="{{ player.nombre }}">
+                <div class="card-body">
+                    <h5 class="card-title" style="color: #2a2e31;">{{ player.tag }}</h5>
+                    <img src="{{ player.photo.url }}" alt="Imagen del Player" style="width: 100%; height: auto;"/>
+                    <a href="{% url 'PlayerDetail' player.id %}" class="btn btn-primary">Ver</a>
+                    
+                    {% if perms.apptalentos.change_player %}
+                        <a href="{% url 'PlayerUpdate' player.id %}" class="btn btn-primary">Editar</a>
+                    {% endif %}
+                    
+                    {% if perms.apptalentos.delete_player %}
+                        <a href="{% url 'PlayerDelete' player.id %}" class="btn btn-primary">Borrar</a>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    {% endblock %}
+
+
+</body>
+</html>

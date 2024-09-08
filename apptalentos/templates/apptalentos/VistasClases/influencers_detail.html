@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    {% extends 'apptalentos/inicio.html' %}
+
+    {% load static %}
+
+    {% block contenidoQueCambia %}
+
+    <h5>
+        Tag: {{ influencer.tag }}</br>
+        Twitch: {{ influencer.twitch }}</br>
+        Youtube: {{ influencer.youtube }}</br>
+        Twitter: {{ influencer.twitter }}</br>
+        Instagram: {{ influencer.instagram }}</br>
+        TikTok: {{ influencer.tiktok }}</br>
+        </br>
+        <img src="{{ influencer.photo.url }}" alt="Imagen del Caster" style="width: 300px; height: auto;"/></br>
+        <br>
+        <button type="button" class="btn btn-dark"><a href="{% url 'InfluencerList' %}">Regresar</a></button></br>
+    </h5>
+    
+    {% endblock %}
+
+
+</body>
+</html>

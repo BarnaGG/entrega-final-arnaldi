@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    {% extends 'apptalentos/inicio.html' %}
+
+    {% load static %}
+
+    {% block contenidoQueCambia %}
+
+    <section class="page-section bg-primary text-white mb-0" id="about">
+        <h2 class="page-section-heading text-center text-uppercase text-white">Talentos del Streaming</h2>
+        <h3 style="text-align: center;">Siempre online, siempre preparados</h3>
+    <div class="row">
+        {% for streamer in object_list %}
+            <div class="card" style="width: 18rem;" >
+                <img src="{{ streamer.foto.url }}" class="card-img-top" alt="{{ streamer.nombre }}">
+                <div class="card-body">
+                    <h5 class="card-title" style="color: #2a2e31;">{{ streamer.tag }}</h5>
+                    <img src="{{ streamer.photo.url }}" alt="Imagen del Caster" style="width: 100%; height: auto;"/>
+                    <a href="{% url 'StreamerDetail' streamer.id %}" class="btn btn-primary">Ver</a>
+                    
+                    {% if perms.apptalentos.change_streamer %}
+                        <a href="{% url 'StreamerUpdate' streamer.id %}" class="btn btn-primary">Editar</a>
+                    {% endif %}
+                    
+                    {% if perms.apptalentos.delete_streamer %}
+                        <a href="{% url 'StreamerDelete' streamer.id %}" class="btn btn-primary">Borrar</a>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    {% endblock %}
+
+
+</body>
+</html>

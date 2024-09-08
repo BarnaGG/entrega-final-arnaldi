@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    {% extends 'apptalentos/inicio.html' %}
+
+    {% load static %}
+
+    {% block contenidoQueCambia %}
+
+    <h5>
+        Tag: {{ player.tag }}</br>
+        Twitch: {{ player.twitch }}</br>
+        Youtube: {{ player.youtube }}</br>
+        Twitter: {{ player.twitter }}</br>
+        Instagram: {{ player.instagram }}</br>
+        Juego: {{ player.game }}</br>
+        Rol: {{ player.role }}</br>
+        Equipos previos: {{ player.former }}</br>
+        </br>
+        <img src="{{ player.photo.url }}" alt="Imagen del Player" style="width: 300px; height: auto;"/></br>
+        </br>
+        <button type="button" class="btn btn-dark"><a href="{% url 'PlayerList' %}">Regresar</a></button></br>
+    </h5>
+
+    {% endblock %}
+
+
+</body>
+</html>

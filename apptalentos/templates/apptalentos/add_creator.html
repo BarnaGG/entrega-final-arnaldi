@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Añadir Creador</title>
+</head>
+<body>
+    
+    {% extends "apptalentos/inicio.html" %}
+
+    {% load static %}
+        
+    {% block contenidoQueCambia %}     
+
+    <section class="page-section bg-primary text-white mb-0" id="about">
+        <h2 class="page-section-heading text-center text-uppercase text-white">Añadir nuevo Creador</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <!-- Menú desplegable para seleccionar el tipo de creador -->
+        <h3>Selecciona el tipo de creador:</h3>
+        <label for="creator_type"></label>
+        <select id="creator_type" name="creator_type" onchange="this.form.submit()">
+            <option value="">--Seleccionar--</option>
+            <option value="streamer" {% if selected_creator_type == 'streamer' %}selected{% endif %}>Streamer</option>
+            <option value="hostcaster" {% if selected_creator_type == 'hostcaster' %}selected{% endif %}>Host/Caster</option>
+            <option value="player" {% if selected_creator_type == 'player' %}selected{% endif %}>Player</option>
+            <option value="influencer" {% if selected_creator_type == 'influencer' %}selected{% endif %}>Influencer</option>
+        </select>
+
+        <!-- Mostrar el formulario correspondiente -->
+        {% if form %}
+            {{ form.as_p }}
+            <button type="submit">Guardar</button>
+        {% endif %}
+    </form>
+
+    {% endblock %}
+
+</body>
+</html>

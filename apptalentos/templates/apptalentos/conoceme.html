@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conoceme</title>
+</head>
+<body>
+     
+{% extends "apptalentos/inicio.html" %}
+
+{% load static %}
+    
+{% block contenidoQueCambia %} 
+    
+<section class="page-section bg-primary text-white mb-0" id="about">
+    <div class="container">
+        <!-- About Section Heading-->
+        <h2 class="page-section-heading text-center text-uppercase text-white">Acerca de mi</h2>
+        <!-- Icon Divider-->
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <!-- About Section Content-->
+        <div class="row">
+            <div class="col-lg-4 ms-auto"><p class="lead">Hola! Mi nombre es Bruno, pero puedes llamarme Barna! Hace casi una decada que me dedico al desarrollo del mundo de los esports desde diferentes perspectivas.</p></div>
+            <div class="col-lg-4 me-auto"><p class="lead">Permiteme ayudarte, con toda mi experiencia, a encontrar la mejor cara para tu proximo proyecto. <br/> Hagamos que sea todo un exito!</p></div>
+        </div>
+        <!-- About Section Button-->
+        <div class="text-center mt-4">
+            <a class="btn btn-xl btn-outline-light" href="https://instagram.com/barnagg">
+                <i class="fab fa-instagram me-2"></i>
+                Sigueme en Instagram
+            </a>
+        </div>
+    </div>
+</section>
+    
+ {% endblock %}
+
+</body>
+</html>

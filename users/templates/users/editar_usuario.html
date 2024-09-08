@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>editar usuario</title>
+</head>
+<body>
+    
+    {% extends 'apptalentos/inicio.html' %}
+
+    {% load static %}
+
+    {% block title %} editar_usuario {% endblock title %}
+
+    {% block contenidoQueCambia %}
+    
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <table>
+                {{ mi_form.as_table }}
+            </table>
+            <a class="btn btn-dark" href="{% url 'CambiarPass' %}">Cambiar contraseña</a></br>
+            <input type="submit" value="Actualizar">
+
+        </form>
+
+    {% endblock %}
+
+
+</body>
+</html>

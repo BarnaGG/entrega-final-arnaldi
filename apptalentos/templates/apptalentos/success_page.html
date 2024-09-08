@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Creador Creado!</title>
+</head>
+<body>
+     
+    {% extends "apptalentos/inicio.html" %}
+
+    {% load static %}
+        
+    {% block contenidoQueCambia %} 
+        
+    <section class="page-section bg-primary text-white mb-0" id="about">
+        <h2 class="page-section-heading text-center text-uppercase text-white">¡Creador Creado!</h2>
+        <p>El creador ha sido añadido correctamente a la base de datos.</p>
+        <a href="{% url 'add_creator' %}" class="btn btn-dark">Añadir otro creador</a> |
+        <a href="{% url 'inicio' %}" class="btn btn-dark">Volver al inicio</a>
+    
+    {% endblock %}
+
+</body>
+</html>

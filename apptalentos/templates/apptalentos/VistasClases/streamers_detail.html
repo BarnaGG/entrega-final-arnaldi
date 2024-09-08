@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    {% extends 'apptalentos/inicio.html' %}
+
+    {% load static %}
+
+    {% block contenidoQueCambia %}
+
+    <h5>
+        Tag: {{ streamer.tag }}</br>
+        Twitch: {{ streamer.twitch }}</br>
+        Youtube: {{ streamer.youtube }}</br>
+        Twitter: {{ streamer.twitter }}</br>
+        Instagram: {{ streamer.instagram }}</br>
+        TikTok: {{ streamer.tiktok }}</br>
+        </br>
+        <img src="{{ streamer.photo.url }}" alt="Imagen del Caster" style="width: 300px; height: auto;"/></br>
+        </br>
+        <button type="button" class="btn btn-dark"><a href="{% url 'StreamerList' %}">Regresar</a></button></br>
+    </h5>
+
+    {% endblock %}
+
+
+</body>
+</html>
