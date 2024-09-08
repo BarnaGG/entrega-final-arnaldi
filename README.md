@@ -1,8 +1,16 @@
 # Entrega Final - Proyecto Django
 
+## Video visita al sitio
+
+https://youtu.be/yV-xRA91cAI
+
 ## Descripción
 
 Este es el proyecto final para la cursada de Python de CoderHouse, desarrollado por Bruno Nicolás Arnaldi. El proyecto consiste en una aplicación web para la gestión de perfiles de streamers, casters, hosts, jugadores e influencers. Permite agregar, editar y visualizar información relevante de cada perfil, así como gestionar la representación y management de talentos en el ámbito de esports y gaming.
+
+## Usuario con permisos:
+user: superprofesor
+pass: coderhouse
 
 ## Requisitos
 
